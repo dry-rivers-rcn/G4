@@ -6,12 +6,13 @@
 
 # Transfers discharge estimates from GRADES to MERIT Hydro flowline shapefiles
 
-library(ncdf4)
-library(foreign)
+# install/load libraries:
+require(ncdf4)
+require(foreign)
 
 
 # Define paths: 
-wd = "E:/research/2019_05_10_Lin_etal_discharge/git"
+wd = "E:/research/2019_10_07_G4/git/G4"
 inDir = paste0(wd, "/in")
 outDir = paste0(wd, "/out")
 
@@ -21,6 +22,7 @@ mhDirIn = paste0(inDir, "/MERIT_Hydro/riv")
 
 mhDirOut = paste0(outDir, "/MERIT_GRADES")
 
+
 # list files:
 ncPaths = list.files(ncDirIn, pattern="nc", full.names=T)
 mHpaths = list.files(mhDirIn, pattern="dbf", full.names=T)
@@ -29,9 +31,9 @@ mHpaths = list.files(mhDirIn, pattern="dbf", full.names=T)
 
 # for each GRADES region: 
 #for (i in 1:length(ncPaths)){
-i = 5 # Australia
 
-print(i)
+i = 5 # Australia as an example
+
 
 # read in netCDF file:
 ncIn = nc_open(ncPaths[i])
@@ -58,7 +60,6 @@ mHpathsOut = sub(mhDirIn, mhDirOut, mHpaths[i])
 foreign::write.dbf(dbfOut, mHpathsOut)
 
 #}
-
 
 
 
