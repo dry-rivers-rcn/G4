@@ -5,7 +5,6 @@
 # Primary script developer: George H. Allen
 # Feb 5, 2022
 
-
 # Please cite: 
 # Assessing placement bias of the global river gauge network
 # Nature Sustainability
@@ -14,7 +13,6 @@
 # Shanafield, Amy J. Burgin, Margaret Zimmer, Thibault Datry, Walter K. Dodds, 
 # C. Nathan Jones, Meryl C. Mims, Catherin Franklin, John C. Hammond, Samuel C. 
 # Zipper, Adam S. Ward, Katie H. Costigan, Hylke E. Beck, and Julian D. Olden
-
 
 # Description: 
 # This code compares zero-flow measurements from global gauge records to 
@@ -32,13 +30,12 @@ require(ncdf4)
 require(foreign)
 require(sf)
 
-################################################################################ 
+
 # Define paths:
 wd = "~/XXX/G4"
 inDir = paste0(wd, "/in")
 outDir = paste0(wd, "/out")
-biasDir = paste0(inDir, "/bias/all_bias")
-joinPath = paste0(inDir, "/bias/GRADES_join/join_all.csv")
+biasDir = paste0(inDir, "/sampleData/Beck_etal")
 
 ################################################################################
 # Read in CSV files created by Peirong Lin at Princeton University. Each CSV 
@@ -62,7 +59,6 @@ for (i in 2:length(biasPaths)){
 }
 
 
-################################################################################
 # compute statistics of GRADES simulated streamflow during no-flow observation:
 print(paste("N no-flow observations in GRADES gauges:", nrow(bTab)))
 LQ = quantile(bTab$qmod, 0.25)
@@ -75,7 +71,7 @@ UQ = quantile(bTab$qmod, 0.75)
 
 # read in Australian & US EPA no-flow measurements. This table was created via 
 # GIS analysis by Catherin Franklin (doing several spatial joins in ArcGIS): 
-vTab = read.csv(paste0(inDir, "/bias/australia_EPA/australia_epa.csv"), header=T)
+vTab = read.csv(paste0(inDir, "/sampleData/Kennard_etal_EPA/australia_epa.csv"), header=T)
 
 # filter out sites with drainage areas less than 25 km2 (min. area of GRADES)
 vTab = vTab[-(which(vTab$drainage_k < 25)), ] 
@@ -150,7 +146,7 @@ ggplot(ggTab) +
 # coefficient of variability
 # temporal trends 
 
-# specify paths:
+# specify paths: (read out to G.Allen for these data, they are <1 TB in size):
 ncDirIn = paste0(inDir, "/GRADES")
 mhDirIn = paste0(inDir, "/MERIT_Hydro/riv")
 mhSortDirIn = paste0(inDir, "/MERIT_Hydro_sorted")
