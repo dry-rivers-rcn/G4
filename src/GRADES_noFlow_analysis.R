@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 ################################################################################
-# noFlow_analysis.R
+# GRADES_noFlow_analysis.R
 ################################################################################
 # Primary script developer: George H. Allen
 # Feb 5, 2022
