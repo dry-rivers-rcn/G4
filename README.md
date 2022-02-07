@@ -6,7 +6,7 @@
 Shanafield, Amy J. Burgin, Margaret Zimmer, Thibault Datry, Walter K. Dodds, C. Nathan Jones, Meryl C. Mims, Catherin Franklin, John C. Hammond, Samuel C. Zipper, Adam S. Ward, Katie H. Costigan, Hylke E. Beck, and Julian D. Olden
 
 #### System Requirements
-* Created using R version 4.0.2 (Mac, Windows, or Linux compatible)
+* Created using R version 4.0.2 and Python 3 (Mac, Windows, or Linux compatible)
 * Tested on Windows 10 and MacOS Monterey
 
 #### Installation Guide
@@ -14,7 +14,7 @@ Shanafield, Amy J. Burgin, Margaret Zimmer, Thibault Datry, Walter K. Dodds, C. 
 * Install time is expected to be less than 5 minutes. 
 
 #### Demo
-* Please follow directions within each of the two R scripts posted in this repository. 
+* Please follow directions within each of the scripts posted in this repository. 
 
 #### Instructions for use:
-* Note that sample data has been provided. For the full dataset, please contact the lead authors of this study. 
+* Note that sample data has been provided. For the full datasets, please contact the lead authors of this study. 
