@@ -1,7 +1,8 @@
 # Krabbenhoft et al. (2022) *Nature Sustainability* Codes
 ## Codes to analyze data for the Global Gauge Gaps Group (G4) Project
 
-### Please site:  Krabbenhoft et al. (2022) Assessing placement bias of the global river gauge network 
+### Please site:  
+### Krabbenhoft et al. (2022) Assessing placement bias of the global river gauge network 
 **Authors:** Corey A. Krabbenhoft, George H. Allen, Peirong Lin, Sarah E. Godsey, Daniel C. Allen, Ryan M. Burrows, Amanda G. DelVecchia, Ken M. Fritz, Margaret
 Shanafield, Amy J. Burgin, Margaret Zimmer, Thibault Datry, Walter K. Dodds, C. Nathan Jones, Meryl C. Mims, Catherin Franklin, John C. Hammond, Samuel C. Zipper, Adam S. Ward, Katie H. Costigan, Hylke E. Beck, and Julian D. Olden
 
