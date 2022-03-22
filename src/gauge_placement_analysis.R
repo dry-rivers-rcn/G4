@@ -3,7 +3,7 @@
 # gauge_placement_analysis.R
 # --------------------------------------------------------------------------------------------
 # Primary script developer: Julian D. Olden
-# Date: 2/2/2022
+# Date: 2/15/2022
 
 # Please cite: 
 # Assessing placement bias of the global river gauge network
@@ -35,7 +35,7 @@ VARnames <- read.csv('~/XXX/VARnames.csv', header=FALSE)
 FHTnames <- read.csv('~/XXX/FHTnames.csv', header=FALSE)
 
 # --------------------------------------------------------------------------------------------
-# Calculating standard bias and Wassenstein distnace for gauge reaches vs. all reaches
+# Calculating standard bias and Wassenstein distance for gauge reaches vs. all reaches
 
 # sub-setting reaches to those containing gauges and removing reaches (n=22) with missing geospatial data
 gagdata<-data %>% 
@@ -49,7 +49,7 @@ alldata<-data %>%
 # calculating variable means for all data
 varmeans<-alldata[,-1] %>%
   summarise_all(mean,na.rm=TRUE)
-  
+
 # calculating standardized bias and Wasserstein distance for each variable
 all_bias<-matrix(, nrow = dim(gagdata[,-1])[2], ncol = 3)
 rownames(all_bias)<-t(VARnames)
@@ -288,30 +288,30 @@ theme_set(theme_bw())
 fht_results<-t((fht_results))
 
 a<-heatmaply(fht_results, 
-          dendrogram = "row",
-          xlab = "", ylab = "", 
-          main = "",
-          scale = "none",
-          legend = TRUE,
-          margins = c(60,100,40,20),
-          grid_color = "white",
-          grid_width = 0.00001,
-          titleX = TRUE,
-          hide_colorbar = FALSE,
-          colorbar(titlefont=list(size=5)),
-          branches_lwd = 0.1,
-          label_names = c("FHT", "Variable:", "Value"),
-          fontsize_row = 12, fontsize_col = 12,
-          labCol = colnames(fht_results),
-          labRow = rownames(fht_results),
-          # layout(legend.font="Arial"),
-          scale_fill_gradient_fun = ggplot2::scale_fill_gradient2(
-            low = "dark blue", 
-            high = "dark red", 
-            midpoint = 0, 
-            limits = c(-1, 2),
-            name="Wasserstein \nDistance (Bias)"),
-          heatmap_layers = theme(axis.line=element_blank(),axis.text.x=element_text(colour="black"),axis.text.y=element_text(colour="black")),
+             dendrogram = "row",
+             xlab = "", ylab = "", 
+             main = "",
+             scale = "none",
+             legend = TRUE,
+             margins = c(60,100,40,20),
+             grid_color = "white",
+             grid_width = 0.00001,
+             titleX = TRUE,
+             hide_colorbar = FALSE,
+             colorbar(titlefont=list(size=5)),
+             branches_lwd = 0.1,
+             label_names = c("FHT", "Variable:", "Value"),
+             fontsize_row = 12, fontsize_col = 12,
+             labCol = colnames(fht_results),
+             labRow = rownames(fht_results),
+             # layout(legend.font="Arial"),
+             scale_fill_gradient_fun = ggplot2::scale_fill_gradient2(
+               low = "dark blue", 
+               high = "dark red", 
+               midpoint = 0, 
+               limits = c(-1.5, 1.5),
+               name="Wasserstein \nDistance (Bias)"),
+             heatmap_layers = theme(axis.line=element_blank(),axis.text.x=element_text(colour="black"),axis.text.y=element_text(colour="black")),
 ) 
 
 a %>% layout(xaxis=list(tickfont = list(family = "Helvetica")),yaxis=list(tickfont = list(family = "Helvetica")))
